@@ -12,7 +12,9 @@ on:
 
 
 
-trigger: none
+  push:
+    branches: ["main"]
+  
   pull_request:
     branches: [ "main" ]
 
