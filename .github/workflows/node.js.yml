@@ -79,7 +79,10 @@ jobs:
         name: my-artifacts
 
     - name: Display structure of downloaded files
-      run: ls -R
+      run: |
+        ls -R
+        sed -i 's/$version/${{ github.event.inputs.name }}/g' manifeast/deployment.yml
+        cat manifeast/deployment.yml
 
 
 
