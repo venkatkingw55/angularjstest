@@ -71,6 +71,15 @@ jobs:
         push: true
         tags: venkadeshw55/myangularweb:${{ github.event.inputs.name }}
         platforms: linux/arm64
+    steps:
+    - uses: actions/checkout@v3
+
+    - uses: actions/download-artifact@v3
+      with:
+        name: my-artifact
+
+    - name: Display structure of downloaded files
+      run: ls -R
 
 
 
