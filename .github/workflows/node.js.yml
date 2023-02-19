@@ -83,6 +83,18 @@ jobs:
         ls -R
         sed -i 's/$version/${{ github.event.inputs.name }}/g' manifeast/deployment.yml
         cat manifeast/deployment.yml
+    - name: Commit kustomization
+      run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add manifeast/*
+          git commit -m "new $version"
+    - name: Push changes to master
+      uses: ad-m/github-push-action@master
+      with:
+          repository: venkatkingw55/gitops-test
+          branch: main
+          force: true 
 
 
 
