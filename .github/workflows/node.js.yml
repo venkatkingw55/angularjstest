@@ -39,13 +39,12 @@ jobs:
     
     runs-on: ubuntu-latest
     steps:
-    - name: Download a Build Artifact
-      uses: actions/download-artifact@v3.0.2
+    - uses: actions/checkout@v3
+
+    - uses: actions/download-artifact@v3
       with:
-        # Artifact name
-        name: download artifacts
-        # Destination path
-#         path: dist
+        name: upload artifacts
+
     - name: Display structure of downloaded files
       run: ls -R
 
