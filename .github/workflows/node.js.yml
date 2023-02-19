@@ -89,8 +89,8 @@ jobs:
           git config --local user.name "GitHub Action"
           git add manifeast/*
           git commit -m "new $version"
-          git remote add origin https://github.com/venkatkingw55/gitops-test.git
-          git push origin
+          git remote add staging https://github.com/venkatkingw55/gitops-test.git
+          git push staging
 #     - name: Push changes to master
 #       uses: ad-m/github-push-action@master
 #       with:
