@@ -6,13 +6,17 @@ on:
   workflow_dispatch:
     inputs:
       name:
-        description: "test tags"
+        description: "docker tags"
         default: 'latest'
+        required: true
+      branch:
+        description: "branch name"
+        default: 'main'
         required: true
 
 
   push:
-    branches: [ "main" ]
+    branches: ${{ github.event.inputs.branch }}
   pull_request:
     branches: [ "main" ]
 
