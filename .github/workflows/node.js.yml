@@ -105,7 +105,7 @@ jobs:
         message: 'Add Kube manifest files'
         author_name: 'GitHub Actions'
         author_email: 'actions@github.com'
-        branch: 'another-branch'
+        branch: 'develop/dev'
         force: true
         push: true
       env:
