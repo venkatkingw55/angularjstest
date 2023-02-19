@@ -32,9 +32,10 @@ jobs:
       with:
         node-version: '14.x'
         cache: 'npm'
-    - run: npm install
-    - run: npm run build
-    - run: pwd && ls -lrth
+    - name: npm install, build
+      run: |
+        npm install
+        npm run build
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v3.1.2
       with:
