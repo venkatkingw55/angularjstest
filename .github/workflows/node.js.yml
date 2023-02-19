@@ -93,8 +93,8 @@ jobs:
       uses: ad-m/github-push-action@master
       with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          repository: venkatkingw55/gitops-test
-          branch: main
+#           repository: venkatkingw55/gitops-test
+          branch: test
           force: true
           directory: manifeast
 
