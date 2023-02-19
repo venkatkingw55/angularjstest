@@ -39,14 +39,21 @@ jobs:
     
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-
-    - uses: actions/download-artifact@v3
+    - name: Login to Docker Hub
+      uses: docker/login-action@v2
       with:
-        name: my-artifacts
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: tags
+      run: echo "tags name ${{ github.event.inputs.name }}"
+    - name: Build and push
+      uses: docker/build-push-action@v4
+      with:
 
-    - name: Display structure of downloaded files
-      run: ls -R
+        push: true
+        tags: venkadeshw55/pythonflaskapp:${{ github.event.inputs.name }}
+
+
 
 
  
