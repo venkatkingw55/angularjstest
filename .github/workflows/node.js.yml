@@ -83,33 +83,22 @@ jobs:
         ls -R
         sed -i 's/$version/${{ github.event.inputs.name }}/g' manifeast/deployment.yml
         cat manifeast/deployment.yml
-#     - name: Commit kustomization
-#       run: |
-#           git config --local user.email "actions@github.com"
-#           git config --local user.name "github-actions[bot]"
-#           git add manifeast/*
-#           git commit -m "new $version"
+    - name: Commit kustomization
+      run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "github-actions[bot]"
+          git add manifeast/*
+          git commit -m "new $version"
 
-#     - name: Push changes to master
-#       uses: ad-m/github-push-action@master
-#       with:
-#           github_token: ${{ secrets.GITHUB_TOKEN }}
-# #           repository: venkatkingw55/gitops-test
-#           branch: test
-#           force: true
-#           directory: manifeast
-    - name: Push changes to another branch
-      uses: EndBug/add-and-commit@v7
+    - name: Push changes to master
+      uses: ad-m/github-push-action@master
       with:
-        directory: 'manifest'
-        message: 'Add Kube manifest files'
-        author_name: 'GitHub Actions'
-        author_email: 'actions@github.com'
-        branch: 'develop/dev'
-        force: true
-        push: true
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+#           repository: venkatkingw55/gitops-test
+          branch: develop/dev
+          force: true
+          directory: ./manifeast
+ 
 
 
 
