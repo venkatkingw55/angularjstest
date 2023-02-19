@@ -53,7 +53,7 @@ jobs:
         password: ${{ secrets.DOCKERHUB_TOKEN }}
     - name: tags
       run: echo "tags name ${{ github.event.inputs.name }}"
-    - run: ls -lrth
+
     - name: Download a Build Artifact
       uses: actions/download-artifact@v3.0.2
       with:
@@ -61,6 +61,7 @@ jobs:
         name: my-artifacts
         # Destination path
         path: dist
+    - run: ls -lrth
     - name: Build and push
       uses: docker/build-push-action@v4
       with:
