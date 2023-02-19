@@ -16,7 +16,7 @@ on:
 
 
   push:
-    branches: ${{ github.event.inputs.branch }}
+    branches: [ '${{ github.event.inputs.branch }}' ]
   pull_request:
     branches: [ "main" ]
 
