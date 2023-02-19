@@ -89,14 +89,16 @@ jobs:
           git config --local user.name "GitHub Action"
           git add manifeast/*
           git commit -m "new $version"
-    - name: Push changes to master
-      uses: ad-m/github-push-action@master
-      with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-#           repository: venkatkingw55/gitops-test
-          branch: test
-          force: true
-          directory: manifeast
+          git remote add origin https://github.com/venkatkingw55/gitops-test.git
+          git push origin
+#     - name: Push changes to master
+#       uses: ad-m/github-push-action@master
+#       with:
+#           github_token: ${{ secrets.GITHUB_TOKEN }}
+# #           repository: venkatkingw55/gitops-test
+#           branch: test
+#           force: true
+#           directory: manifeast
 
 
 
