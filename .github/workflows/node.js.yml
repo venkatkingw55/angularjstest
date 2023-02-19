@@ -45,7 +45,9 @@ jobs:
         # Artifact name
         name: download artifacts
         # Destination path
-        path: dist
+#         path: dist
+    - name: Display structure of downloaded files
+      run: ls -R
 
 
  
