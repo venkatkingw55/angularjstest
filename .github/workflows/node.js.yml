@@ -53,12 +53,14 @@ jobs:
         password: ${{ secrets.DOCKERHUB_TOKEN }}
     - name: tags
       run: echo "tags name ${{ github.event.inputs.name }}"
+    - run: ls -lrth
     - name: Build and push
+    
       uses: docker/build-push-action@v4
       with:
-
         push: true
         tags: venkadeshw55/pythonflaskapp:${{ github.event.inputs.name }}
+
 
 
 
