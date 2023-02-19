@@ -70,7 +70,7 @@ jobs:
       with:
         push: true
         tags: venkadeshw55/myangularweb:${{ github.event.inputs.name }}
-        platforms: linux/amd64,linux/arm64
+        platforms: linux/arm64
 
 
 
