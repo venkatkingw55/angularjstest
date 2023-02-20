@@ -96,7 +96,7 @@ jobs:
       with:
           github_token: ${{ secrets.REPO_TOKENS }}
           #repository: venkatkingw55/gitops-test
-          branch: main
+          branch: develop/dev
           force: true
           directory: ./manifeast
  
