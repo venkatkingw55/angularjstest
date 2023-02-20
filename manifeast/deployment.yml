@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: venkadeshw55/myangularweb:1.1.1
+        image: venkadeshw55/myangularweb:$version
         resources:
           limits:
             memory: "128Mi"
