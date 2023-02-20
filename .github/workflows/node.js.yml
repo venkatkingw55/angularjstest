@@ -89,7 +89,7 @@ jobs:
           git config --local user.name "venkat"
           git add manifeast/deployment.yml
           git commit -m "new $version"
-          git push http://${{ secrets.USER_NAME }}:${{ secrets.TOKEN }}@github.com/venkatkingw55/gitops-test.git master
+          git push http://${{ secrets.USER_NAME }}:${{ secrets.TOKEN }}@github.com/venkatkingw55/gitops-test.git main
           
 
 #     - name: Push changes to master
