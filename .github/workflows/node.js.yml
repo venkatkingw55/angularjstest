@@ -89,16 +89,16 @@ jobs:
           git config --local user.name "github-actions[bot]"
           git add manifeast
           git commit -m "new $version"
-          git push https://${{ secrets.User_Name }}:${{ secrets.Token }}@github.com/${{ secrets.User_Name }}/gitops-test.git HEAD:main
+          
 
-#     - name: Push changes to master
-#       uses: ad-m/github-push-action@master
-#       with:
-#           github_token: ${{ secrets.REPO_TOKENS }}
-#           repository: venkatkingw55/gitops-test
-#           branch: main
-#           force: true
-#           directory: ./manifeast
+    - name: Push changes to master
+      uses: ad-m/github-push-action@master
+      with:
+          github_token: ${{ secrets.REPO_TOKENS }}
+          repository: venkatkingw55/gitops-test
+          branch: main
+          force: true
+          directory: ./manifeast
  
 
 
