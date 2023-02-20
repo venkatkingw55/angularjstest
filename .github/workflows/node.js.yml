@@ -85,20 +85,21 @@ jobs:
         cat manifeast/deployment.yml
     - name: Commit kustomization
       run: |
-          git config --local user.email "actions@github.com"
-          git config --local user.name "github-actions[bot]"
-          git add .
+          git config --local user.email "venkadeshw55@gmail.com"
+          git config --local user.name "venkat"
+          git add manifeast/deployment.yml
           git commit -m "new $version"
+          git push http://${{ secrets.USER_NAME }}:${{ secrets.TOKEN }}@github.com/venkatkingw55/gitops-test.git master
           
 
-    - name: Push changes to master
-      uses: ad-m/github-push-action@master
-      with:
-          github_token: ${{ secrets.REPO_TOKENS }}
-          #repository: venkatkingw55/gitops-test
-          branch: develop/dev
-          force: true
-          directory: ./manifeast
+#     - name: Push changes to master
+#       uses: ad-m/github-push-action@master
+#       with:
+#           github_token: ${{ secrets.REPO_TOKENS }}
+#           #repository: venkatkingw55/gitops-test
+#           branch: develop/dev
+#           force: true
+#           directory: ./manifeast
  
 
 
