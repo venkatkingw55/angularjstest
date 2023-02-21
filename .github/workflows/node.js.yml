@@ -85,6 +85,8 @@ jobs:
     - name: Display structure of downloaded files
       run: |
         ls -R
+        sed -E -i.bak 's%(venkadeshw55/myangularweb:).*%\1${{ github.event.inputs.name }}%' deployment.yml
+        cat deployment.yml
 #         sed -i 's/$version/${{ github.event.inputs.name }}/g' manifeast/deployment.yml
 #         cat manifeast/deployment.yml
 #     - name: Commit kustomization
