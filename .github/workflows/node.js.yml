@@ -68,10 +68,10 @@ jobs:
     - name: Build and push
       uses: docker/build-push-action@v4
       with:
-        push: ${{ github.ref == 'refs/heads/master' }}
+        push: ${{ github.ref == 'refs/heads/main' }}
         tags: venkadeshw55/myangularweb:${{ github.event.inputs.name }}
         platforms: linux/arm64
-  gitops:
+  update-manifest-file:
     needs: [docker-build]
     
     runs-on: ubuntu-latest
