@@ -85,7 +85,7 @@ jobs:
     - name: Display structure of downloaded files
       run: |
         ls -R
-        sed -E -i.bak 's%(venkadeshw55/myangularweb:).*%\1${{ github.event.inputs.name }}%' manifest/deployment.yml
+        sed -E -i 's%(venkadeshw55/myangularweb:).*%\1${{ github.event.inputs.name }}%' manifest/deployment.yml
         cat manifest/deployment.yml
     - name: Commit kustomization
       run: |
@@ -94,7 +94,6 @@ jobs:
           git add manifest
           git commit -m "new $version image updated"
           git push origin main
-          #git push http://${{ secrets.USER_NAME }}:${{ secrets.TOKEN }}@github.com/venkatkingw55/gitops-test.git main
           
 
  
