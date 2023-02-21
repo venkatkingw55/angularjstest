@@ -64,7 +64,9 @@ jobs:
         name: my-artifacts
         # Destination path
         path: dist
-    - run: ls -lrth
+    - run: |
+        ls -lrt
+        cd dist && ls -lrt
     - name: Build and push
       uses: docker/build-push-action@v4
       with:
