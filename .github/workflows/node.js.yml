@@ -69,7 +69,7 @@ jobs:
         file: ./Dockerfile
         push: ${{ github.ref == 'refs/heads/main' }}
         tags: ${{ secrets.DOCKERHUB_USERNAME }}/myangularweb:${{ github.event.inputs.name }}
-        platforms: linux/arm64
+#         platforms: linux/arm64
   #stage - 3
   update-manifest-file:
     needs: [docker-build]
