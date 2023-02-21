@@ -19,6 +19,7 @@ on:
 #     branches: [ "main" ]
 
 jobs:
+  #stage - 1
   npm-build:
 
     runs-on: ubuntu-latest
@@ -41,6 +42,7 @@ jobs:
         # A file, directory or wildcard pattern that describes what to upload
         path: dist
         # The desired behavior if no files are found using the provided path.
+   #stage - 2     
   docker-build:
     needs: [npm-build]
     
@@ -65,15 +67,10 @@ jobs:
       with:
         context: .
         file: ./Dockerfile
-        push: ${{ github.ref == 'refs/heads/master' }}
+        push: ${{ github.ref == 'refs/heads/main' }}
         tags: ${{ secrets.DOCKERHUB_USERNAME }}/myangularweb:${{ github.event.inputs.name }}
-      
-#     - name: Build and push
-#       uses: docker/build-push-action@v4
-#       with:
-#         push: ${{ github.ref == 'refs/heads/main' }}
-#         tags: venkadeshw55/myangularweb:${{ github.event.inputs.name }}
-#         platforms: linux/arm64
+        platforms: linux/arm64
+  #stage - 3
   update-manifest-file:
     needs: [docker-build]
     
