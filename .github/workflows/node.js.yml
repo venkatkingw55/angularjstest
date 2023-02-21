@@ -93,7 +93,8 @@ jobs:
           git config --local user.name "venkat"
           git add .
           git commit -m "new $version image updated"
-          git push http://${{ secrets.USER_NAME }}:${{ secrets.TOKEN }}@github.com/venkatkingw55/gitops-test.git main
+          git push origin main
+          #git push http://${{ secrets.USER_NAME }}:${{ secrets.TOKEN }}@github.com/venkatkingw55/gitops-test.git main
           
 
  
