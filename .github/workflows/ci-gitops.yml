@@ -22,9 +22,6 @@ jobs:
   npm-build:
 
     runs-on: ubuntu-latest
-
-
-
     steps:
     - uses: actions/checkout@v3
     - name: Use Node.js ${{ matrix.node-version }}
@@ -57,23 +54,26 @@ jobs:
     - name: tags
       run: echo "tags name ${{ github.event.inputs.name }}"
 
-#     - name: Download a Build Artifact
-#       uses: actions/download-artifact@v3.0.2
-#       with:
-#         # Artifact name
-#         name: my-artifacts
-#         # Destination path
-#         path: dist
-#     - run: |
-#         ls -lrt
-#         cd dist && ls -lrt
+    - name: checkout git
     - uses: actions/checkout@v3
+    
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v2
+      
     - name: Build and push
       uses: docker/build-push-action@v4
       with:
-        push: ${{ github.ref == 'refs/heads/main' }}
-        tags: venkadeshw55/myangularweb:${{ github.event.inputs.name }}
-        platforms: linux/arm64
+        context: .
+        file: ./Dockerfile
+        push: ${{ github.ref == 'refs/heads/master' }}
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/myangularweb:${{ github.event.inputs.name }}
+      
+#     - name: Build and push
+#       uses: docker/build-push-action@v4
+#       with:
+#         push: ${{ github.ref == 'refs/heads/main' }}
+#         tags: venkadeshw55/myangularweb:${{ github.event.inputs.name }}
+#         platforms: linux/arm64
   update-manifest-file:
     needs: [docker-build]
     
