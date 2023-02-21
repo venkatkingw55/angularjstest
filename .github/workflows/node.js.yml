@@ -87,15 +87,13 @@ jobs:
         ls -R
         sed -E -i.bak 's%(venkadeshw55/myangularweb:).*%\1${{ github.event.inputs.name }}%' deployment.yml
         cat deployment.yml
-#         sed -i 's/$version/${{ github.event.inputs.name }}/g' manifeast/deployment.yml
-#         cat manifeast/deployment.yml
-#     - name: Commit kustomization
-#       run: |
-#           git config --local user.email "venkadeshw55@gmail.com"
-#           git config --local user.name "venkat"
-#           git add manifeast/deployment.yml
-#           git commit -m "new $version"
-#           git push http://${{ secrets.USER_NAME }}:${{ secrets.TOKEN }}@github.com/venkatkingw55/gitops-test.git main
+    - name: Commit kustomization
+      run: |
+          git config --local user.email "venkadeshw55@gmail.com"
+          git config --local user.name "venkat"
+          git add .
+          git commit -m "new $version image updated"
+          git push http://${{ secrets.USER_NAME }}:${{ secrets.TOKEN }}@github.com/venkatkingw55/gitops-test.git main
           
 
  
