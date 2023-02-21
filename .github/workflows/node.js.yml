@@ -81,7 +81,7 @@ jobs:
       with:
         repository: venkatkingw55/gitops-test
         ref: 'main'
-        token: ${{ secrets.G_TOKEN }}
+        token: ${{ secrets.TOKEN }}
     - name: Display structure of downloaded files
       run: |
         ls -R
